@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Portfolio of Vasanth Ravi">
+<title>Vasanth Ravi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow reading column, oversized name set left, a marigold index rail for section labels */
+:root{
+  --paper:#EDF0F4; --surface:#F8FAFC; --ink:#151A2E; --muted:#59617A; --line:#CDD3DE; --accent:#C9780A; --accent-ink:#8A4F00;
+  --display:"Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --paper:#0F1322; --surface:#171C2F; --ink:#E7EAF2; --muted:#9AA2B8; --line:#2A3148; --accent:#F0A332; --accent-ink:#F5BA62; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0F1322; --surface:#171C2F; --ink:#E7EAF2; --muted:#9AA2B8; --line:#2A3148; --accent:#F0A332; --accent-ink:#F5BA62; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:1rem;line-height:1.6;padding-inline:20px;padding-block:0}
+.wrap{max-width:60rem;margin-inline:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+nav{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:1.4rem;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:.8rem}
+nav .mark{font-weight:500;letter-spacing:.04em}
+nav ul{display:flex;gap:1.25rem;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{text-decoration:none;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+
+.hero{padding-block:clamp(3rem,9vw,6.5rem) clamp(2.5rem,6vw,4.5rem);display:grid;gap:1.75rem}
+.eyebrow{font-family:var(--mono);font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent-ink);display:flex;align-items:center;gap:.6rem}
+.eyebrow::before{content:"";width:.55rem;height:.55rem;border-radius:50%;background:var(--accent)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(3.2rem,12vw,8rem);line-height:.88;letter-spacing:-.035em;margin:0;text-wrap:balance}
+h1 span{display:block;color:var(--accent)}
+.lede{font-size:clamp(1.1rem,2.2vw,1.35rem);max-width:36rem;margin:0;color:var(--ink)}
+.lede em{font-style:normal;background:linear-gradient(transparent 62%, color-mix(in srgb,var(--accent) 35%,transparent) 62%)}
+.meta{display:flex;flex-wrap:wrap;gap:.6rem 1.75rem;font-family:var(--mono);font-size:.82rem;color:var(--muted)}
+.cta{display:flex;flex-wrap:wrap;gap:.75rem}
+.btn{font:inherit;font-weight:600;font-size:.92rem;padding:.75rem 1.2rem;border-radius:999px;border:1.5px solid var(--ink);background:var(--ink);color:var(--paper);text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--ink)}
+.btn:hover{transform:translateY(-1px)}
+
+section{display:grid;grid-template-columns:11rem minmax(0,1fr);gap:1.5rem 2.5rem;padding-block:3.25rem;border-top:1px solid var(--line)}
+.label{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-top:.35rem}
+.label b{display:block;color:var(--accent-ink);font-weight:500}
+h2{font-family:var(--display);font-weight:700;font-size:clamp(1.6rem,3.5vw,2.2rem);line-height:1.1;letter-spacing:-.02em;margin:0 0 1rem;text-wrap:balance}
+p{margin:0 0 1rem;max-width:40rem}
+.muted{color:var(--muted)}
+
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin-top:1.5rem}
+.stat{border-left:2px solid var(--accent);padding-left:.9rem}
+.stat strong{display:block;font-family:var(--display);font-size:2rem;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.stat span{font-size:.85rem;color:var(--muted)}
+
+.timeline{list-style:none;margin:0;padding:0;display:grid}
+.timeline li{display:grid;grid-template-columns:8.5rem minmax(0,1fr);gap:1.25rem;padding-block:1.25rem;border-bottom:1px dashed var(--line)}
+.timeline li:first-child{padding-top:0}
+.when{font-family:var(--mono);font-size:.82rem;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:.2rem}
+.timeline h3{font-family:var(--display);font-size:1.2rem;font-weight:700;margin:0}
+.org{color:var(--accent-ink);font-weight:500;font-size:.92rem;margin-bottom:.4rem}
+.timeline p{margin:0;color:var(--muted)}
+
+.work{display:grid;gap:1rem}
+.project{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.5rem;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:.4rem 1.5rem;align-items:start}
+.project h3{font-family:var(--display);font-size:1.25rem;font-weight:700;margin:0}
+.project p{margin:0;color:var(--muted);grid-column:1/-1}
+.tag{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-ink);border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);border-radius:999px;padding:.2rem .6rem;white-space:nowrap}
+.result{grid-column:1/-1;font-family:var(--mono);font-size:.82rem;color:var(--ink);margin-top:.4rem}
+.result::before{content:"→ ";color:var(--accent)}
+
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(13rem,1fr));gap:1.75rem}
+.skills h3{font-family:var(--mono);font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500;margin:0 0 .6rem}
+.skills ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.skills li{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.3rem .65rem;font-size:.9rem}
+
+.contact-row{display:flex;flex-wrap:wrap;align-items:center;gap:.75rem;margin-top:.5rem}
+.email{font-family:var(--display);font-weight:700;font-size:clamp(1.2rem,4vw,2rem);letter-spacing:-.01em;word-break:break-all;user-select:all}
+#copyMsg{font-family:var(--mono);font-size:.8rem;color:var(--accent-ink)}
+.links{display:flex;flex-wrap:wrap;gap:1.25rem;margin-top:1.25rem;font-family:var(--mono);font-size:.85rem}
+
+footer{padding-block:2rem 2.5rem;border-top:1px solid var(--line);font-family:var(--mono);font-size:.75rem;color:var(--muted);display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem}
+
+@media (max-width:720px){
+  section{grid-template-columns:minmax(0,1fr);gap:1rem}
+  .label b{display:inline;margin-right:.5rem}
+  .timeline li{grid-template-columns:minmax(0,1fr);gap:.3rem}
+  .stats{grid-template-columns:minmax(0,1fr)}
+  .project{grid-template-columns:minmax(0,1fr)}
+  .tag{justify-self:start}
+}
+@media (prefers-reduced-motion:no-preference){
+  .hero > *{animation:rise .6s ease-out both}
+  .hero > *:nth-child(2){animation-delay:.06s}.hero > *:nth-child(3){animation-delay:.12s}.hero > *:nth-child(4){animation-delay:.18s}.hero > *:nth-child(5){animation-delay:.24s}
+  @keyframes rise{from{transform:translateY(10px)}to{transform:none}}
+  .btn{transition:transform .15s}
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav aria-label="Main">
+    <span class="mark">VR / Portfolio</span>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <div class="eyebrow">Open to new opportunities</div>
+    <h1>Vasanth <span>Ravi</span></h1>
+    <p class="lede">I help teams turn messy problems into <em>clear plans and finished results</em>, with care for the people doing the work.</p>
+    <div class="meta">
+      <span>Tiruchirappalli, Tamil Nadu</span>
+      <span>Your role / title</span>
+      <span>English · Tamil</span>
+    </div>
+    <div class="cta">
+      <a class="btn" href="#contact">Get in touch</a>
+      <a class="btn ghost" href="#work">See my work</a>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="label"><b>01</b>About</div>
+    <div>
+      <h2>A practical problem-solver who likes things done properly.</h2>
+      <p>I'm a professional based in Tiruchirappalli. I enjoy work where planning, communication and follow-through matter: getting the right people aligned, spotting what's slowing things down, and seeing a job through to the end.</p>
+      <p class="muted">Outside work I read, travel around Tamil Nadu, and keep learning new tools that make everyday work easier.</p>
+      <div class="stats">
+        <div class="stat"><strong>5+</strong><span>years of experience</span></div>
+        <div class="stat"><strong>20+</strong><span>projects delivered</span></div>
+        <div class="stat"><strong>3</strong><span>organisations served</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="label"><b>02</b>Experience</div>
+    <div>
+      <h2>Where I've worked</h2>
+      <ol class="timeline">
+        <li>
+          <div class="when">2023 – Now</div>
+          <div>
+            <h3>Senior Role Title</h3>
+            <div class="org">Company Name · Chennai</div>
+            <p>Lead day-to-day delivery for a team of six, set priorities each week and report progress to management.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2021 – 2023</div>
+          <div>
+            <h3>Role Title</h3>
+            <div class="org">Company Name · Tiruchirappalli</div>
+            <p>Owned client coordination and documentation, and cut turnaround time on routine requests.</p>
+          </div>
+        </li>
+        <li>
+          <div class="when">2017 – 2021</div>
+          <div>
+            <h3>Degree Name</h3>
+            <div class="org">College Name · Tiruchirappalli</div>
+            <p>Graduated with distinction. Final-year project on improving a local process.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="label"><b>03</b>Selected work</div>
+    <div>
+      <h2>Projects I'm proud of</h2>
+      <div class="work">
+        <article class="project">
+          <h3>Process overhaul</h3><span class="tag">Operations</span>
+          <p>Mapped a slow approval process end to end, removed duplicate steps and trained the team on the new flow.</p>
+          <div class="result">Approval time reduced from 5 days to 2</div>
+        </article>
+        <article class="project">
+          <h3>Client onboarding guide</h3><span class="tag">Documentation</span>
+          <p>Wrote a step-by-step guide and checklist so every new client gets the same clear start.</p>
+          <div class="result">Fewer follow-up questions in the first month</div>
+        </article>
+        <article class="project">
+          <h3>Regional event</h3><span class="tag">Coordination</span>
+          <p>Planned and ran a one-day event for 150 attendees, from vendors and budget to the schedule on the day.</p>
+          <div class="result">Delivered on time and under budget</div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="label"><b>04</b>Skills</div>
+    <div class="skills">
+      <div><h3>Core</h3><ul><li>Planning</li><li>Team coordination</li><li>Client communication</li><li>Problem solving</li></ul></div>
+      <div><h3>Tools</h3><ul><li>Excel</li><li>Google Workspace</li><li>PowerPoint</li><li>Claude</li></ul></div>
+      <div><h3>Languages</h3><ul><li>English</li><li>Tamil</li></ul></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="label"><b>05</b>Contact</div>
+    <div>
+      <h2>Let's work together.</h2>
+      <p class="muted">The best way to reach me is email. I usually reply within a day.</p>
+      <div class="contact-row">
+        <span class="email" id="email">vasanthravi2809@gmail.com</span>
+        <button class="btn ghost" id="copyBtn" type="button">Copy email</button>
+        <span id="copyMsg" aria-live="polite"></span>
+      </div>
+      <div class="links">
+        <a href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://github.com/vasanthravi2809-web" target="_blank" rel="noopener">GitHub · vasanthravi2809-web ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>© 2026 Vasanth Ravi</span>
+    <span>Tiruchirappalli · IST (UTC+5:30)</span>
+  </footer>
+</div>
+
+<script>
+document.getElementById('copyBtn').addEventListener('click', function(){
+  var text = document.getElementById('email').textContent, msg = document.getElementById('copyMsg');
+  function fallback(){
+    var r = document.createRange(); r.selectNodeContents(document.getElementById('email'));
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+    msg.textContent = 'Selected. Press Ctrl+C to copy';
+  }
+  try{
+    navigator.clipboard.writeText(text).then(function(){ msg.textContent = 'Copied'; }, fallback);
+  }catch(e){ fallback(); }
+});
+</script>
+</body>
+</html>
